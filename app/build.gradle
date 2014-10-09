@@ -20,6 +20,7 @@ android {
     buildToolsVersion "20.0.0"
 
     defaultConfig {
+        applicationId "com.example.scala"
         minSdkVersion 8
         targetSdkVersion 20
         versionCode 1

@@ -1,4 +1,4 @@
-package com.sonymobile.scalaexample
+package com.example.scala
 
 import android.app.Activity
 import android.os.Bundle
