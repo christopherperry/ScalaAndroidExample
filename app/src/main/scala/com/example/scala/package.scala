@@ -18,11 +18,11 @@ package object globals {
   }
 
   object Toast {
-    def showShort(text: String)(implicit context: Context) = {
-      android.widget.Toast.makeText(context, text, android.widget.Toast.LENGTH_SHORT)
+    def showShort(text: String)(implicit context: Context): Unit = {
+      android.widget.Toast.makeText(context, text, android.widget.Toast.LENGTH_SHORT).show()
     }
-    def showLong(text: String)(implicit context: Context) = {
-      android.widget.Toast.makeText(context, text, android.widget.Toast.LENGTH_LONG)
+    def showLong(text: String)(implicit context: Context): Unit = {
+      android.widget.Toast.makeText(context, text, android.widget.Toast.LENGTH_LONG).show()
     }
   }
 }

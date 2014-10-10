@@ -7,7 +7,7 @@ import view.{RichViews, TypedViewHolder}
 package object activity {
 
   trait TypedActivity extends Activity with TypedActivityHolder with RichViews {
-    override def activity = this
+    override implicit def activity = this
 
     override def onCreate(savedInstanceState: Bundle): Unit = {
       super.onCreate(savedInstanceState)
@@ -15,8 +15,6 @@ package object activity {
     }
 
     def create(bundle: Bundle)
-
-    def findView[T >: View](id: Int): T = activity.findViewById(id)
   }
 
   trait TypedActivityHolder {
