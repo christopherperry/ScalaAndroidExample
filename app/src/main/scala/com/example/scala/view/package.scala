@@ -2,18 +2,13 @@ import android.text.{Editable, TextWatcher}
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.EditText
-import globals.TypedResource
 
 package object view {
 
-  trait TypedViewHolder {
-    def view: View
-
-    def findView[T](tr: TypedResource[T]) = view.findViewById(tr.id).asInstanceOf[T]
-  }
-
-  trait TypedView extends View with TypedViewHolder {
+  trait TypedView extends View {
     def view = this
+
+    def findView[T](id: Int): T = view.findViewById(id).asInstanceOf[T]
   }
 
   trait RichViews extends RichView with RichEditText
@@ -24,9 +19,7 @@ package object view {
 
       def onClick(f: View => Unit) = {
         view.setOnClickListener(new OnClickListener {
-          override def onClick(v: View): Unit = {
-            f(v)
-          }
+          override def onClick(v: View) = f(v)
         })
       }
     }

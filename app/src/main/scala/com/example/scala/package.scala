@@ -1,21 +1,7 @@
 import android.content.Context
-import android.widget.{Button, EditText}
-import com.example.scala.R
+import android.content.res.Resources
 
 package object globals {
-  case class TypedResource[T](id: Int)
-
-  /**
-   * You would manually place all typed resources here.
-   */
-  object TR {
-    // EditText
-    val usernameEditText = TypedResource[EditText](R.id.usernameEditText)
-    val passwordEditText = TypedResource[EditText](R.id.passwordEditText)
-
-    // Button
-    val loginButton = TypedResource[Button](R.id.loginButton)
-  }
 
   object Toast {
     def showShort(text: String)(implicit context: Context): Unit = {
@@ -24,5 +10,9 @@ package object globals {
     def showLong(text: String)(implicit context: Context): Unit = {
       android.widget.Toast.makeText(context, text, android.widget.Toast.LENGTH_LONG).show()
     }
+  }
+
+  implicit class dp(dpValue: Int) {
+    def dp: Int = (dpValue * Resources.getSystem.getDisplayMetrics.density + 0.5).toInt
   }
 }

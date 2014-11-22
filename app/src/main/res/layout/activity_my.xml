@@ -11,6 +11,7 @@
     tools:context=".MyActivity">
 
     <TextView
+        android:id="@+id/helloMessage"
         android:text="Hello Scala!"
         android:textSize="32dp"
         android:gravity="center"
